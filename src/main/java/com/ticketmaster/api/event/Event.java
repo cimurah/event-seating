@@ -1,8 +1,14 @@
 package com.ticketmaster.api.event;
 
 import java.time.LocalDate;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
+@Entity
 public class Event {
+    @Id
+    @GeneratedValue
     private Long id;
     private LocalDate date;
     
@@ -16,13 +22,6 @@ public class Event {
      */
     public Long getId() {
         return id;
-    }
-
-    /**
-     * @param id the id to set
-     */
-    public void setId(Long id) {
-        this.id = id;
     }
 
     /**
