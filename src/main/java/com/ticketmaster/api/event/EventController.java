@@ -2,12 +2,14 @@ package com.ticketmaster.api.event;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 //import org.springframework.web.bind.annotation.RequestMapping;
 //import org.springframework.web.bind.annotation.RequestParam;
 //import org.springframework.web.bind.annotation.RestController;
 //
 //@RestController
 //@RequestMapping("/events")
+@RestController
 public class EventController {
     private final EventRepository eventRepository;
 //    
@@ -19,13 +21,13 @@ public class EventController {
     @GetMapping("/events/{event_id}/seats/count")
     public Event getSeatsCount() {
     return new Event();
-}
-    
-    @GetMapping("/events/{event_id}/seats")
-    public Event getSeats() {
-  
-        return new Event();
     }
+    
+//    @GetMapping("/events/{event_id}/seats")
+//    public Event getSeats() {
+//  
+//        return new Event();
+//    }
 //    @GetMapping
 //    public ResponseEntity<List<Event>> getAllArticles() {
 //        return new ResponseEntity<List<Article>>(list, HttpStatus.OK);
