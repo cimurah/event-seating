@@ -1,1 +1,1 @@
-# event-seating-chart
+# event-seats
