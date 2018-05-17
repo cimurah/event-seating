@@ -5,34 +5,29 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 import javax.persistence.*;
-
+import org.hibernate.annotations.GenericGenerator;
+//http://docs.jboss.org/hibernate/orm/5.0/userguide/html_single/Hibernate_User_Guide.html#identifiers
 @Entity
 public class Event {
-
-  //  @Column(unique = true)
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
- 
-    private final UUID uniqueId = UUID.randomUUID();
+    @GeneratedValue(generator = "uuid2")
+    @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
+    @Column(name = "id", columnDefinition = "BINARY(16)")
+    private UUID id = UUID.randomUUID();
     
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "event")
     private Set<Seat> seats = new HashSet<>();
     
     public Event() { } // JPA only
     
-    public void setId(Long id){
+    public void setId(UUID id){
         this.id = id;
     }
     
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
-    
-    public UUID getUniqueId() {
-        return uniqueId;
-    }
-    
+        
     public Set<Seat> getSeats() {
         return seats;
     }

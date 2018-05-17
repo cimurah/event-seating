@@ -7,16 +7,14 @@ import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 public class Seat{
-
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
     private Long id;
     
     private boolean aisle;
     private boolean available;
     private SeatType type;
     
-     //  @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "event_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)

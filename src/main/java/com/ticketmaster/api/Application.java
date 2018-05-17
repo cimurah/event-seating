@@ -16,8 +16,7 @@ public class Application implements CommandLineRunner{
     @Autowired
     private EventRepository eventRepository;
     
-    public static void main( String[] args )
-    {
+    public static void main( String[] args ){
         SpringApplication.run(Application.class, args);
     }
     
@@ -37,7 +36,6 @@ public class Application implements CommandLineRunner{
         
         event.setSeats(seats);
         eventRepository.save(event);
-        
     }
 }
 
