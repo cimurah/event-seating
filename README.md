@@ -30,15 +30,16 @@ available =true|false|1|0
 
 **Example** 
 
-curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET http://localhost:8080/events/76167bf5-bc68-4581-b120-314df000fc06/seats?type=adult&available=1
+Request: 
+    curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET http://localhost:8080/events/76167bf5-bc68-4581-b120-314df000fc06/seats?type=adult&available=1
 
 Response:
-`
-HTTP/1.1 200 
-X-Total-Count: 1
-Content-Type: application/json;charset=UTF-8
-Transfer-Encoding: chunked
-Date: Sat, 19 May 2018 06:27:30 GMT
+    
+    HTTP/1.1 200 
+    X-Total-Count: 1
+    Content-Type: application/json;charset=UTF-8
+    Transfer-Encoding: chunked
+    Date: Sat, 19 May 2018 06:27:30 GMT
 
-[{"id":5,"type":"adult","aisle":true,"available":true}]
-`
+    [{"id":5,"type":"adult","aisle":true,"available":true}]
+    
