@@ -1,8 +1,7 @@
 package com.ticketmaster.api;
 
-import com.ticketmaster.api.event.Event;
-import com.ticketmaster.api.event.EventRepository;
-import com.ticketmaster.api.seat.Seat;
+import com.ticketmaster.api.model.*;
+import com.ticketmaster.api.repository.EventRepository;
 import java.util.HashSet;
 import java.util.Set;
 import javax.transaction.Transactional;
@@ -23,21 +22,42 @@ public class Application implements CommandLineRunner{
     @Override
     @Transactional
     public void run(String... strings) throws Exception {
+        //add events and seats to database
         Event event = new Event();
-        Seat seat1 = new Seat(true, false, Seat.SeatType.ADULT);
+        Seat seat1 = new Seat(Seat.SeatType.ADULT, true, false);
         seat1.setEvent(event);
-        Seat seat2 = new Seat(true, false, Seat.SeatType.CHILD);
+        Seat seat2 = new Seat(Seat.SeatType.CHILD, false, false);
         seat2.setEvent(event);
         
-        Set seats = new HashSet<Seat>(){{
+        Seat seat3 = new Seat(Seat.SeatType.CHILD, true, false);
+        seat3.setEvent(event);
+        
+        Set seatsSet = new HashSet<Seat>(){{
             add(seat1);
             add(seat2);
+            add(seat3);
         }};
         
-        event.setSeats(seats);
+        event.setSeats(seatsSet);
         eventRepository.save(event);
+        
+        Event event2 = new Event();
+        Seat seat4 = new Seat(Seat.SeatType.ADULT, true, true);
+        seat4.setEvent(event2);
+        
+        Seat seat5 = new Seat(Seat.SeatType.CHILD, true, false);
+        seat5.setEvent(event2);
+        
+        Seat seat6 = new Seat(Seat.SeatType.CHILD, true, false);
+        seat6.setEvent(event2);
+        
+        Set seatsSet2 = new HashSet<Seat>(){{
+            add(seat4);
+            add(seat5);
+            add(seat6);
+        }};
+        
+        event2.setSeats(seatsSet2);
+        eventRepository.save(event2);
     }
 }
-
-
-//https://www.callicoder.com/hibernate-spring-boot-jpa-one-to-many-mapping-example/

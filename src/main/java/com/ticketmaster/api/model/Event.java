@@ -1,24 +1,26 @@
-package com.ticketmaster.api.event;
+package com.ticketmaster.api.model;
 
-import com.ticketmaster.api.seat.Seat;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 import javax.persistence.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.annotations.GenericGenerator;
-//http://docs.jboss.org/hibernate/orm/5.0/userguide/html_single/Hibernate_User_Guide.html#identifiers
+
 @Entity
 public class Event {
     @Id
     @GeneratedValue(generator = "uuid2")
     @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
-    @Column(name = "id", columnDefinition = "BINARY(16)")
-    private UUID id = UUID.randomUUID();
+    @Column(columnDefinition = "BINARY(16)") 
+    private UUID id;
     
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "event")
+    @OnDelete(action=OnDeleteAction.CASCADE) 
     private Set<Seat> seats = new HashSet<>();
     
-    public Event() { } // JPA only
+    public Event() { }
     
     public void setId(UUID id){
         this.id = id;
