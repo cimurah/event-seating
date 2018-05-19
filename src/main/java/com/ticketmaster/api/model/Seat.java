@@ -26,8 +26,8 @@ public class Seat{
     }
     
     public enum SeatType {
-        ADULT,
-        CHILD
+        adult,
+        child
     }
     
     public void setId(Long id){

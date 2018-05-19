@@ -24,12 +24,12 @@ public class Application implements CommandLineRunner{
     public void run(String... strings) throws Exception {
         //add events and seats to database
         Event event = new Event();
-        Seat seat1 = new Seat(Seat.SeatType.ADULT, true, false);
+        Seat seat1 = new Seat(Seat.SeatType.adult, true, false);
         seat1.setEvent(event);
-        Seat seat2 = new Seat(Seat.SeatType.CHILD, false, false);
+        Seat seat2 = new Seat(Seat.SeatType.child, false, false);
         seat2.setEvent(event);
         
-        Seat seat3 = new Seat(Seat.SeatType.CHILD, true, false);
+        Seat seat3 = new Seat(Seat.SeatType.child, true, false);
         seat3.setEvent(event);
         
         Set seatsSet = new HashSet<Seat>(){{
@@ -42,13 +42,13 @@ public class Application implements CommandLineRunner{
         eventRepository.save(event);
         
         Event event2 = new Event();
-        Seat seat4 = new Seat(Seat.SeatType.ADULT, true, true);
+        Seat seat4 = new Seat(Seat.SeatType.adult, true, true);
         seat4.setEvent(event2);
         
-        Seat seat5 = new Seat(Seat.SeatType.CHILD, true, false);
+        Seat seat5 = new Seat(Seat.SeatType.child, true, false);
         seat5.setEvent(event2);
         
-        Seat seat6 = new Seat(Seat.SeatType.CHILD, true, false);
+        Seat seat6 = new Seat(Seat.SeatType.child, true, false);
         seat6.setEvent(event2);
         
         Set seatsSet2 = new HashSet<Seat>(){{
