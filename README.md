@@ -31,6 +31,7 @@ available =true|false|1|0
 **Example** 
 
 Request: 
+
     curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET http://localhost:8080/events/76167bf5-bc68-4581-b120-314df000fc06/seats?type=adult&available=1
 
 Response:
