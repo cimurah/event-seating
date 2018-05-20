@@ -15,18 +15,18 @@ Design and implement a working REST api service that would provide a way to retu
 
 ### Documentation
 
-This Spring Boot API was built with Maven plugin and includes the dependency spring-boot-starter-data-rest, which means that the corresponding 
-REST API CRUD endpoints for events and seats are enabled.
+This JAVA Spring Boot REST API was built with Maven plugin and includes the dependency spring-boot-starter-data-rest, which means that the corresponding 
+REST API CRUD endpoints for events and seats are enabled and ready to be used.
 
-For the purpose of this exercise, I used H2 in memory database and it can be found at http://localhost:8080/h2-console once the app is running for data manipulation. 
+For the purpose of this exercise and data manipulation, I used H2 in memory database and it can be found at http://localhost:8080/h2-console once the app is running. 
 
 The endpoint /events/{eventId}/seats was customized to accept filters(type, aisle, available) and return http header x-total-count.
 
 Valid filter parameter values are:
 
-type=adult|child 
-aisle=true|false|1|0
-available =true|false|1|0
+    type= adult | child 
+    aisle= true | false | 1 | 0
+    available = true | false | 1 | 0
 
 **Example** 
 

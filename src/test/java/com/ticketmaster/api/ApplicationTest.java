@@ -36,3 +36,6 @@ public class ApplicationTest
         assertTrue( true );
     }
 }
+
+
+//https://blog.jayway.com/2014/07/04/integration-testing-a-spring-boot-application/

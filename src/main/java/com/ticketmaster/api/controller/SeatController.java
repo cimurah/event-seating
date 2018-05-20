@@ -1,7 +1,8 @@
 package com.ticketmaster.api.controller;
 
-import com.ticketmaster.api.model.Seat;
-import com.ticketmaster.api.repository.SeatRepository;
+import com.ticketmaster.api.model.*;
+import com.ticketmaster.api.repository.*;
+import com.ticketmaster.api.exception.*;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -14,15 +15,23 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class SeatController {
     @Autowired
+    private EventRepository eventRepository;
+    
+    @Autowired
     private SeatRepository seatRepository;
     
     @GetMapping("/events/{eventId}/seats")
-    public List<Seat> getCount(@PathVariable UUID eventId, 
+    public List<Seat> getSeats(@PathVariable UUID eventId, 
             @RequestParam("type") Optional<Seat.SeatType> type, 
             @RequestParam("aisle") Optional<Boolean> aisle, 
             @RequestParam("available") Optional<Boolean> available) {
-
+        
+        this.validateEvent(eventId);
         return seatRepository.findByEventAndAttributes(eventId, type, aisle, available);
     }
+    
+    private void validateEvent(UUID eventId) {
+		this.eventRepository.findById(eventId).orElseThrow(
+				() -> new CustomNotFoundException("Event " + eventId + " Not Found."));
+	}
 }
-
