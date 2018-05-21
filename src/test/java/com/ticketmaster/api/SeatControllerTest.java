@@ -25,7 +25,6 @@ import org.springframework.web.context.WebApplicationContext;
 @SpringBootTest(classes = Application.class)
 @WebAppConfiguration
 public class SeatControllerTest {
-    
     private MockMvc mockMvc;
      
     @Autowired
@@ -62,7 +61,7 @@ public class SeatControllerTest {
     }
     
     @Test
-	public void getEventSeatsTotalCount() throws Exception {
+    public void getEventSeatsTotalCount() throws Exception {
         MockHttpServletResponse response = this.mockMvc
 				.perform(MockMvcRequestBuilders
 				.get("/events/" + this.eventList.get(0).getId()  + "/seats"))
@@ -70,10 +69,10 @@ public class SeatControllerTest {
 
         assertNotNull(response.getHeader("X-Total-Count"));
         assertTrue(response.getHeader("X-Total-Count").equals("4"));
-	}
+    }
     
     @Test
-	public void getEventSeatsAvailableTotalCount() throws Exception {
+    public void getEventSeatsAvailableTotalCount() throws Exception {
         MockHttpServletResponse response = this.mockMvc
 				.perform(MockMvcRequestBuilders
 				.get("/events/" + this.eventList.get(0).getId()  + "/seats?available=1"))
@@ -81,10 +80,10 @@ public class SeatControllerTest {
 
         assertNotNull(response.getHeader("X-Total-Count"));
         assertTrue(response.getHeader("X-Total-Count").equals("2"));
-	}
+    }
     
     @Test
-	public void getEventSeatsFilteredTotalCount() throws Exception {
+    public void getEventSeatsFilteredTotalCount() throws Exception {
         MockHttpServletResponse response = this.mockMvc
 				.perform(MockMvcRequestBuilders
 				.get("/events/" + this.eventList.get(0).getId()  + "/seats?aisle=true&type=child"))
@@ -92,5 +91,5 @@ public class SeatControllerTest {
 
         assertNotNull(response.getHeader("X-Total-Count"));
         assertTrue(response.getHeader("X-Total-Count").equals("1"));
-	}   
+    }   
 }
