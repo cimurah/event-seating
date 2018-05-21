@@ -34,5 +34,5 @@ public class SeatController {
     private void validateEvent(UUID eventId) {
 		this.eventRepository.findById(eventId).orElseThrow(
 				() -> new CustomNotFoundException("Event " + eventId + " Not Found."));
-	}
+    }
 }
