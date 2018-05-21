@@ -38,7 +38,7 @@ Valid filter parameter values are:
 
 Notes:
 
-Due to time constraint, I've only included a few tests to cover this exercise main objective.  My goals with these tests are to verify that my solution is responding as expected and to learn how to implement unit testing in Spring Boot.
+Due to time constraint, I've only included a few tests to cover this exercise main objective.  My goals with these tests were to verify that my solution responds as expected and to learn how to implement unit testing in Spring.
 
 **Example** 
 
