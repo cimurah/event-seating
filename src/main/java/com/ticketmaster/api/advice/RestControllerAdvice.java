@@ -34,5 +34,5 @@ public class RestControllerAdvice implements ResponseBodyAdvice<Collection<?>> {
     public ResponseMessage handleNotFoundExceptionHandler(CustomNotFoundException exception) {
         ResponseMessage responseMessage = new ResponseMessage(exception.getMessage());
         return responseMessage;
-	}
+    }
 }
