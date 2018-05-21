@@ -20,13 +20,26 @@ REST API CRUD endpoints for events and seats are enabled and ready to be used.
 
 For the purpose of this exercise and data manipulation, I used H2 in memory database and it can be found at http://localhost:8080/h2-console once the app is running. 
 
-The endpoint /events/{eventId}/seats was customized to accept filters(type, aisle, available) and return http header x-total-count.
+I used the following Maven command to run the application:
+
+    mvn spring-boot:run
+
+A list of prepopulated events can be found at:
+
+    http://localhost:8080/events
+
+The endpoint /events/{eventId}/seats has been customized to accept filters(type, aisle, available) and to include the total seats count through the response header x-total-count.
 
 Valid filter parameter values are:
 
     type= adult | child 
     aisle= true | false | 1 | 0
     available = true | false | 1 | 0
+
+Notes:
+
+I've only included a few tests to cover this exercise main objective.  My goals with these tests is to verify that my solution is responding as expected and to learn how to
+implement unit testing in Spring Boot.
 
 **Example** 
 
@@ -43,4 +56,6 @@ Response:
     Date: Sat, 19 May 2018 06:27:30 GMT
 
     [{"id":5,"type":"adult","aisle":true,"available":true}]
-    
+
+
+  

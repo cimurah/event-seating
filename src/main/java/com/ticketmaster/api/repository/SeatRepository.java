@@ -17,5 +17,5 @@ public interface SeatRepository extends JpaRepository<Seat, Long>{
             @Param("type") Optional<Seat.SeatType> type, 
             @Param("aisle") Optional<Boolean> aisle,
             @Param("available") Optional<Boolean> available);
-
+    
 }

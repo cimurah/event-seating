@@ -23,6 +23,7 @@ public class RestControllerAdvice implements ResponseBodyAdvice<Collection<?>> {
 
     @Override
     public Collection<?> beforeBodyWrite(Collection<?> body, MethodParameter mp, MediaType mt, Class<? extends HttpMessageConverter<?>> type, ServerHttpRequest request, ServerHttpResponse response) {
+        //Add x-total-count header to response 
         response.getHeaders().add("X-Total-Count", String.valueOf(body.size()));
         return body;        
     }

@@ -19,7 +19,7 @@ public class SeatController {
     
     @Autowired
     private SeatRepository seatRepository;
-    
+
     @GetMapping("/events/{eventId}/seats")
     public List<Seat> getSeats(@PathVariable UUID eventId, 
             @RequestParam("type") Optional<Seat.SeatType> type, 
@@ -27,6 +27,7 @@ public class SeatController {
             @RequestParam("available") Optional<Boolean> available) {
         
         this.validateEvent(eventId);
+        
         return seatRepository.findByEventAndAttributes(eventId, type, aisle, available);
     }
     
