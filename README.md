@@ -2,9 +2,9 @@
 
 Events are identified by a unique id, and each event has Seats available for sale. Seats have the following properties.
 
-available=true|false
+available = true | false
 
-aisle=true|false
+aisle = true | false
 
 type = adult | child
 
@@ -32,14 +32,13 @@ The endpoint /events/{eventId}/seats has been customized to accept filters(type,
 
 Valid filter parameter values are:
 
-    type= adult | child 
-    aisle= true | false | 1 | 0
+    type = adult | child 
+    aisle = true | false | 1 | 0
     available = true | false | 1 | 0
 
 Notes:
 
-I've only included a few tests to cover this exercise main objective.  My goals with these tests is to verify that my solution is responding as expected and to learn how to
-implement unit testing in Spring Boot.
+Due to time constraint, I've only included a few tests to cover this exercise main objective.  My goals with these tests are to verify that my solution is responding as expected and to learn how to implement unit testing in Spring Boot.
 
 **Example** 
 
