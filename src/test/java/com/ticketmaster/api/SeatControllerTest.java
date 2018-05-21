@@ -63,9 +63,9 @@ public class SeatControllerTest {
     @Test
     public void getEventSeatsTotalCount() throws Exception {
         MockHttpServletResponse response = this.mockMvc
-				.perform(MockMvcRequestBuilders
-				.get("/events/" + this.eventList.get(0).getId()  + "/seats"))
-                .andReturn().getResponse();
+            .perform(MockMvcRequestBuilders
+            .get("/events/" + this.eventList.get(0).getId()  + "/seats"))
+            .andReturn().getResponse();
 
         assertNotNull(response.getHeader("X-Total-Count"));
         assertTrue(response.getHeader("X-Total-Count").equals("4"));
@@ -74,9 +74,9 @@ public class SeatControllerTest {
     @Test
     public void getEventSeatsAvailableTotalCount() throws Exception {
         MockHttpServletResponse response = this.mockMvc
-				.perform(MockMvcRequestBuilders
-				.get("/events/" + this.eventList.get(0).getId()  + "/seats?available=1"))
-                .andReturn().getResponse();
+            .perform(MockMvcRequestBuilders
+            .get("/events/" + this.eventList.get(0).getId()  + "/seats?available=1"))
+            .andReturn().getResponse();
 
         assertNotNull(response.getHeader("X-Total-Count"));
         assertTrue(response.getHeader("X-Total-Count").equals("2"));
@@ -85,9 +85,9 @@ public class SeatControllerTest {
     @Test
     public void getEventSeatsFilteredTotalCount() throws Exception {
         MockHttpServletResponse response = this.mockMvc
-				.perform(MockMvcRequestBuilders
-				.get("/events/" + this.eventList.get(0).getId()  + "/seats?aisle=true&type=child"))
-                .andReturn().getResponse();
+            .perform(MockMvcRequestBuilders
+            .get("/events/" + this.eventList.get(0).getId()  + "/seats?aisle=true&type=child"))
+            .andReturn().getResponse();
 
         assertNotNull(response.getHeader("X-Total-Count"));
         assertTrue(response.getHeader("X-Total-Count").equals("1"));
