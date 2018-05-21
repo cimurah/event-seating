@@ -31,7 +31,7 @@ public class RestControllerAdvice implements ResponseBodyAdvice<Collection<?>> {
     @ResponseBody
     @ExceptionHandler(CustomNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-	public ResponseMessage handleNotFoundExceptionHandler(CustomNotFoundException exception) {
+    public ResponseMessage handleNotFoundExceptionHandler(CustomNotFoundException exception) {
         ResponseMessage responseMessage = new ResponseMessage(exception.getMessage());
         return responseMessage;
 	}
